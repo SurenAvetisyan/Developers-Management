@@ -1,0 +1,79 @@
+<odoo>
+    <data>
+
+        <record id="developer_form_view" model="ir.ui.view">
+            <field name="name">developer.form.view</field>
+            <field name="model">developer</field>
+            <field name="arch" type="xml">
+                <form string="Developers">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="type"/>
+                                <field name="global_identification"/>
+                                <field name="phone" attrs="{'invisible': [('type', '=', 'out-stuff')]}"/>
+                                <field name="email"/>
+                                <field name="address"/>
+                                <field name="date_of_birth"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="developer_tree_view" model="ir.ui.view">
+            <field name="name">developer.tree.view</field>
+            <field name="model">developer</field>
+
+            <field name="arch" type="xml">
+                <tree string="Developers">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="global_identification"/>
+                    <field name="phone" attrs="{'invisible': [('type', '=', 'out-stuff')]}"/>
+                    <field name="email"/>
+                    <field name="address"/>
+                    <field name="date_of_birth"/>
+                </tree>
+
+            </field>
+        </record>
+
+        <record id="developer_view_search" model="ir.ui.view">
+            <field name="name">developer.search.view</field>
+            <field name="model">developer</field>
+            <field name="arch" type="xml">
+                <search string="Developers">
+                    <field name="name"/>
+                    <field name="type"/>
+                    <field name="phone"/>
+                    <group expand="0" string="Group by...">
+                        <filter
+                                string="Type"
+                                name="type"
+                                domain="[]"
+                                context="{'group_by': 'type'}"
+                        />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="action_developer" model="ir.actions.act_window">
+            <field name="name">Developers</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">developer</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_add_developer" model="ir.actions.act_window">
+            <field name="name">Add Developer</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">developer</field>
+            <field name="view_mode">form</field>
+        </record>
+
+    </data>
+</odoo>

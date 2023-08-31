@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <menuitem
+                id="developer_menu_root"
+                name="Developers"
+                web_icon="developers_management,static/description/icon.png"
+                sequence="25"/>
+
+        <menuitem
+                id="menu_developers"
+                name="Developers"
+                parent="developers_management.developer_menu_root"
+                sequence="1"/>
+        <menuitem
+                id="menu_developer"
+                name="View Developers"
+                parent="developers_management.menu_developers"
+                action="developers_management.action_developer"
+                sequence="2"/>
+
+        <menuitem
+                id="menu_create_developer"
+                name="Add Developers"
+                parent="developers_management.menu_developers"
+                action="developers_management.action_add_developer"
+                sequence="3"/>
+
+        <menuitem
+                id="menu_view_companies"
+                name="View Companies"
+                parent="developers_management.menu_developers"
+                action="base.action_res_company_form"
+                sequence="4"/>
+
+        <menuitem
+                id="menu_add_companies"
+                name="Add Companies"
+                parent="developers_management.menu_developers"
+                action="base.action_open_base_onboarding_company"
+                sequence="5"/>
+    </data>
+</odoo>
